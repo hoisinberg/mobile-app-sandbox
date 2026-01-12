@@ -1,0 +1,13 @@
+version: v2
+plugins:
+  # Generate TypeScript for React Native (Connect-Web)
+  - local: protoc-gen-es
+    out: ../../chat-mobile/src/gen
+    opt:
+      - target=ts
+  - local: protoc-gen-connect-es
+    out: ../../chat-mobile/src/gen
+    opt:
+      - target=ts
+inputs:
+  - directory: .
