@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View, Text, Pressable, ActivityIndicator } from "react-native";
 import { router } from "expo-router";
+import { Avatar, Button } from "@/components/ui";
 import { checkServerHealth } from "@/services/grpc";
 
 export default function SettingsScreen() {
@@ -21,8 +22,8 @@ export default function SettingsScreen() {
     <View className="flex-1 bg-gray-50">
       <View className="bg-white mt-4">
         <Pressable className="flex-row items-center p-4 border-b border-gray-100">
-          <View className="w-12 h-12 rounded-full bg-blue-500 items-center justify-center mr-3">
-            <Text className="text-white font-bold text-xl">U</Text>
+          <View className="mr-3">
+            <Avatar name="User Name" size="lg" />
           </View>
           <View>
             <Text className="font-semibold text-gray-900">User Name</Text>
@@ -32,13 +33,13 @@ export default function SettingsScreen() {
       </View>
 
       <View className="bg-white mt-4">
-        <Pressable className="p-4 border-b border-gray-100">
+        <Pressable className="p-4 border-b border-gray-100 active:bg-gray-50">
           <Text className="text-gray-900">Notifications</Text>
         </Pressable>
-        <Pressable className="p-4 border-b border-gray-100">
+        <Pressable className="p-4 border-b border-gray-100 active:bg-gray-50">
           <Text className="text-gray-900">Privacy</Text>
         </Pressable>
-        <Pressable className="p-4">
+        <Pressable className="p-4 active:bg-gray-50">
           <Text className="text-gray-900">About</Text>
         </Pressable>
       </View>
@@ -46,7 +47,7 @@ export default function SettingsScreen() {
       {/* Server Health Check */}
       <View className="bg-white mt-4">
         <Pressable
-          className="p-4 flex-row items-center justify-between"
+          className="p-4 flex-row items-center justify-between active:bg-gray-50"
           onPress={handleHealthCheck}
           disabled={healthStatus === "checking"}
         >
@@ -66,10 +67,10 @@ export default function SettingsScreen() {
         </Pressable>
       </View>
 
-      <View className="bg-white mt-4">
-        <Pressable className="p-4" onPress={handleLogout}>
-          <Text className="text-red-500 text-center">Sign Out</Text>
-        </Pressable>
+      <View className="mt-4 px-4">
+        <Button variant="danger" fullWidth onPress={handleLogout}>
+          Sign Out
+        </Button>
       </View>
     </View>
   );

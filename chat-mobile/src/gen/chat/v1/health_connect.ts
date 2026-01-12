@@ -3,7 +3,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import { HealthCheckRequest, HealthCheckResponse } from "./health_pb.js";
+import { HealthCheckRequest, HealthCheckResponse } from "./health_pb.ts";
 import { MethodKind } from "@bufbuild/protobuf";
 
 /**

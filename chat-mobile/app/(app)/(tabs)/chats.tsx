@@ -1,9 +1,10 @@
 import { View, Text, FlatList, Pressable } from "react-native";
+import { Avatar } from "@/components/ui";
 
 const PLACEHOLDER_CHATS = [
-  { id: "1", name: "Alice", lastMessage: "Hey, how are you?", time: "2m" },
-  { id: "2", name: "Bob", lastMessage: "See you tomorrow!", time: "1h" },
-  { id: "3", name: "Team Chat", lastMessage: "Meeting at 3pm", time: "3h" },
+  { id: "1", name: "Alice", lastMessage: "Hey, how are you?", time: "2m", isOnline: true },
+  { id: "2", name: "Bob", lastMessage: "See you tomorrow!", time: "1h", isOnline: false },
+  { id: "3", name: "Team Chat", lastMessage: "Meeting at 3pm", time: "3h", isOnline: true },
 ];
 
 export default function ChatsScreen() {
@@ -13,11 +14,14 @@ export default function ChatsScreen() {
         data={PLACEHOLDER_CHATS}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-          <Pressable className="flex-row items-center p-4 border-b border-gray-100">
-            <View className="w-12 h-12 rounded-full bg-blue-100 items-center justify-center mr-3">
-              <Text className="text-blue-600 font-semibold text-lg">
-                {item.name[0]}
-              </Text>
+          <Pressable className="flex-row items-center p-4 border-b border-gray-100 active:bg-gray-50">
+            <View className="mr-3">
+              <Avatar
+                name={item.name}
+                size="lg"
+                showOnlineStatus
+                isOnline={item.isOnline}
+              />
             </View>
             <View className="flex-1">
               <View className="flex-row justify-between items-center">

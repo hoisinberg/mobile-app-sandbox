@@ -10,6 +10,7 @@
     }
   },
   "include": [
+    "**/*.js",
     "**/*.ts",
     "**/*.tsx",
     "nativewind-env.d.ts"
