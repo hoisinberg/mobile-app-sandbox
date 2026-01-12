@@ -1,3 +1,0 @@
-cargo:rerun-if-changed=../shared/proto/chat/v1/health.proto
-cargo:rerun-if-changed=../shared/proto/chat/v1/health.proto
-cargo:rerun-if-changed=../shared/proto

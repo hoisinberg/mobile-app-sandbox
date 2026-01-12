@@ -1,1 +1,0 @@
-tonic::transport::server::Router<tower_layer::stack::Stack<GrpcWebLayer, tower_layer::identity::Identity>>
