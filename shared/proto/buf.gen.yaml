@@ -2,11 +2,13 @@ version: v2
 plugins:
   # Generate TypeScript for React Native (Connect-Web)
   - local: protoc-gen-es
-    out: ../../chat-mobile/src/gen
+    # Output directory relative to -o flag passed to `buf generate`
+    out: .
     opt:
       - target=ts
   - local: protoc-gen-connect-es
-    out: ../../chat-mobile/src/gen
+    # Output directory relative to -o flag passed to `buf generate`
+    out: .
     opt:
       - target=ts
       - import_extension=.ts
